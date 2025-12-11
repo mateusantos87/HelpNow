@@ -1,0 +1,53 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Helper function to check if user is admin
+    function isAdmin() {
+      return request.auth != null &&
+             firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    // Profile photos
+    match /users/{userId}/profile/{fileName} {
+      allow read: if true; // Public read
+      allow write: if request.auth != null
+                   && request.auth.uid == userId
+                   && request.resource.size < 5 * 1024 * 1024 // 5MB max
+                   && request.resource.contentType.matches('image/.*');
+    }
+
+    // Professional documents (verification)
+    match /professionals/{professionalId}/documents/{fileName} {
+      allow read: if request.auth != null
+                  && (request.auth.uid == professionalId || isAdmin());
+      allow write: if request.auth != null
+                   && request.auth.uid == professionalId
+                   && request.resource.size < 10 * 1024 * 1024; // 10MB max
+    }
+
+    // Service request photos
+    match /service_requests/{requestId}/photos/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null
+                   && request.resource.size < 5 * 1024 * 1024
+                   && request.resource.contentType.matches('image/.*');
+    }
+
+    // Review photos
+    match /reviews/{reviewId}/photos/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null
+                   && request.resource.size < 5 * 1024 * 1024
+                   && request.resource.contentType.matches('image/.*');
+    }
+
+    // Chat images
+    match /chats/{chatId}/images/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null
+                   && request.resource.size < 5 * 1024 * 1024
+                   && request.resource.contentType.matches('image/.*');
+    }
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "professionals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "services",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "isAcceptingJobs",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "rating.average",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "professionals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "geohash",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "isAcceptingJobs",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "rating.average",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "service_requests",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "clientId",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "status",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "createdAt",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "service_requests",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "professionalId",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "status",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "createdAt",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "reviews",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "professionalId",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "isVerified",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "createdAt",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "reviews",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "professionalId",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "rating",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "messages",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "chatId",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "createdAt",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "notifications",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "userId",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "isRead",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "createdAt",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "payments",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "professionalId",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "status",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "createdAt",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
