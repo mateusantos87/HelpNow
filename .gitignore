@@ -137,3 +137,48 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# HelpNow Specific
+# Firebase & Google Cloud credentials
+GoogleService-Info.plist
+google-services.json
+firebase-web-config.js
+infrastructure/firebase-config/*.plist
+infrastructure/firebase-config/*.json
+*.p8
+*.p12
+
+# API Keys and Secrets
+**/api-keys.json
+**/credentials.json
+backend/**/.env
+backend/**/.runtimeconfig.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Flutter/FlutterFlow
+mobile/.flutter-plugins
+mobile/.flutter-plugins-dependencies
+mobile/.packages
+mobile/pubspec.lock
+mobile/.dart_tool/
+*.iml
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.backup
+*.bak
+
+# Certificates & Keys
+*.pem
+*.key
+*.crt
+secrets/
