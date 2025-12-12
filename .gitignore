@@ -182,3 +182,13 @@ tmp/
 *.key
 *.crt
 secrets/
+**/serviceAccountKey.json
+
+# Firebase
+.firebaserc
+firebase-debug.log
+firebase-debug.*.log
+functions/node_modules/
+functions/.runtimeconfig.json
+scripts/node_modules/
+scripts/serviceAccountKey.json
